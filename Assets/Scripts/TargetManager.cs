@@ -12,14 +12,14 @@ public class TargetManager : MonoBehaviour {
 	void OnTriggerEnter(Collider collider){
 
 		if (collider.gameObject.tag == "OutOfBounds_Platform"){
-			Debug.Log("Out of bounds Platform");
+			//Debug.Log("Out of bounds Platform");
 			gameObject.transform.SetParent(null);
-			Destroy(gameObject, 2.0f); // destroy the game object after going out of bounds and the particle is done.
+			//Destroy(gameObject, 2.0f); // destroy the game object after going out of bounds and the particle is done.
 		}
 
 		if (collider.gameObject.tag == "OutOfBounds_Level"){
 
-			Debug.Log("Out of bounds Level");
+			//Debug.Log("Out of bounds Level");
 			gameObject.transform.SetParent(null);
 			// add the points here
 			// spawn a point particle
@@ -31,7 +31,7 @@ public class TargetManager : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision){
 		
-		Debug.Log("COLLISION" + collision.gameObject.tag);
+		//Debug.Log("COLLISION" + collision.gameObject.tag);
 
 		if(collision.gameObject.tag == "Bullet"){
 
@@ -44,7 +44,7 @@ public class TargetManager : MonoBehaviour {
 	}	
 
 	void Explode(){
-		Debug.Log("explode");
+		//Debug.Log("explode");
 	}
 
 }
