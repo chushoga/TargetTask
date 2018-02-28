@@ -22,10 +22,13 @@ public class GameManager : MonoBehaviour {
 	public GameObject shotForceText;
 	private Text shotForceRef;
 	public bool isCharging = false;
-
+	public GameObject powerGauge;
+	private Slider powerGaugeRef;
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 	// Use this for initialization
 	void Start () {
 		shotForceRef = shotForceText.GetComponent<Text>();
+		powerGaugeRef = powerGauge.GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
@@ -49,16 +52,18 @@ public class GameManager : MonoBehaviour {
 
 	public void Shoot(){
 		GameObject bullet = Instantiate(ammo, ammoSpawn.transform.position, ammoSpawn.transform.rotation);
-		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * shotForce;
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (shotForce / 2);
 		// bullet.transform.Rotate(Vector3.left * 90);
 		isCharging = false;
 		shotForce = 0;
+		powerGaugeRef.value = shotForce;
 		Debug.Log("RESET SHOT FORCE");
 	}
 
 	public void ChargeShot(){
 		if(shotForce < shotForceMax) {
 			shotForce += 0.5f;
+			powerGaugeRef.value = shotForce;
 		}
 	}
 
