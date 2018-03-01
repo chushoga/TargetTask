@@ -61,13 +61,13 @@ public class GameManager : MonoBehaviour {
 		isCharging = false;
 		shotForce = 0;
 		powerGaugeRef.value = shotForce;
-		powerGaugeRef2.fillAmount = shotForce/150;
+		powerGaugeRef2.fillAmount = shotForce;
 		Debug.Log("RESET SHOT FORCE");
 	}
 
 	public void ChargeShot(){
 		if(shotForce < shotForceMax) {
-			shotForce += 0.5f;
+			shotForce += 1f;
 			powerGaugeRef.value = shotForce;
 			powerGaugeRef2.fillAmount = shotForce/200;
 		}
