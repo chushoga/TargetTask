@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
 
+	public bool isSpawning = true;
+
 	public float platformSpeed; // speed at which the platform moves
 	public float targetSpawnRate; // rate at which targets spawn;
 	public GameObject startPosition;
@@ -20,6 +22,7 @@ public class SpawnManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		targetSpawnRate = 4;
+		StartCoroutine(SpawnTimer());
 	}
 	
 	// Update is called once per frame
@@ -34,9 +37,10 @@ public class SpawnManager : MonoBehaviour {
 	}
 
 	public IEnumerator SpawnTimer(){
-		yield return new WaitForSeconds(targetSpawnRate);
-		SpawnTargets();
-
+		while(isSpawning){
+			yield return new WaitForSeconds(targetSpawnRate);
+			SpawnTargets();	
+		}
 	}
 
 }
