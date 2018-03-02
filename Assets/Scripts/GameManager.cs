@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 		shotForceRef = shotForceText.GetComponent<Text>();
 		powerGaugeRef = powerGauge.GetComponent<Slider>();
 		powerGaugeRef2 = powerGauge2.GetComponent<Image>();
+
 	}
 	
 	// Update is called once per frame

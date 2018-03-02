@@ -17,7 +17,7 @@ public class MovingPlatform : MonoBehaviour {
 	void FixedUpdate () {
 		//t += Time.deltaTime/timeToReachTarget;
 		//transform.position = Vector3.Lerp(startPosition, target, t);
-		float step = speed * Time.deltaTime;
-		transform.position = Vector3.MoveTowards(transform.position, endPosition.transform.position, step);
+		//float step = speed * Time.deltaTime;
+		//transform.position = Vector3.MoveTowards(transform.position, endPosition.transform.position, step);
 	}
 }
