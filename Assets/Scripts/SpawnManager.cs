@@ -8,10 +8,12 @@ public class SpawnManager : MonoBehaviour {
 
 	public float platformSpeed; // speed at which the platform moves
 	public float targetSpawnRate; // rate at which targets spawn;
+	public float obsticleSpawnRate; // rate at which targets spawn;
 	public GameObject startPosition;
 	public GameObject endPosition;
 
 	public GameObject targetSpawnPoint;
+	public GameObject obsitcleSpawnPoint;
 	public GameObject platform;
 	public List<GameObject> groundTargets = new List<GameObject>();
 	public List<GameObject> airTargets = new List<GameObject>();
@@ -21,8 +23,8 @@ public class SpawnManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		targetSpawnRate = 4;
 		StartCoroutine(SpawnTimer());
+		StartCoroutine(ObsticleSpawnTimer());
 	}
 	
 	// Update is called once per frame
@@ -36,11 +38,25 @@ public class SpawnManager : MonoBehaviour {
 		go.transform.parent = platform.transform;
 	}
 
+	void SpawnObsicles(){
+		GameObject go = Instantiate(obsticalTargets[0], obsitcleSpawnPoint.transform.position, Quaternion.identity);
+		go.transform.parent = platform.transform;
+	}
+
 	public IEnumerator SpawnTimer(){
 		while(isSpawning){
 			yield return new WaitForSeconds(targetSpawnRate);
-			SpawnTargets();	
+			SpawnTargets();
 		}
 	}
+
+	public IEnumerator ObsticleSpawnTimer(){
+		while(isSpawning){
+			yield return new WaitForSeconds(obsticleSpawnRate);
+			SpawnObsicles();
+		}
+	}
+
+
 
 }
