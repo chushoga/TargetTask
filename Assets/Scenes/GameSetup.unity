@@ -632,6 +632,7 @@ GameObject:
   - component: {fileID: 221401698}
   - component: {fileID: 221401697}
   - component: {fileID: 221401696}
+  - component: {fileID: 221401699}
   m_Layer: 0
   m_Name: OutOfBoundsPlatform1
   m_TagString: OutOfBounds_Platform
@@ -705,6 +706,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 221401694}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &221401699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 221401694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04e7f8c9a1bb774a80345db28714ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &267417756
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,8 +894,6 @@ MonoBehaviour:
   platformSpeed: 5
   targetSpawnRate: 1
   obsticleSpawnRate: 1.5
-  startPosition: {fileID: 0}
-  endPosition: {fileID: 0}
   targetSpawnPoint: {fileID: 1960810826}
   obsitcleSpawnPoint: {fileID: 26023606}
   platform: {fileID: 1334278721}
@@ -1425,6 +1435,7 @@ GameObject:
   - component: {fileID: 865005327}
   - component: {fileID: 865005326}
   - component: {fileID: 865005325}
+  - component: {fileID: 865005328}
   m_Layer: 0
   m_Name: OutOfBoundsPlatform2
   m_TagString: OutOfBounds_Platform
@@ -1498,6 +1509,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 865005323}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &865005328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865005323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04e7f8c9a1bb774a80345db28714ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &914567060
 GameObject:
   m_ObjectHideFlags: 0

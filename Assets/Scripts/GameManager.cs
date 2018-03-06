@@ -60,9 +60,9 @@ public class GameManager : MonoBehaviour {
 		// bullet.transform.Rotate(Vector3.left * 90);
 		isCharging = false;
 		shotForce = 0;
-		powerGaugeRef.value = shotForce;
-		powerGaugeRef2.fillAmount = shotForce;
-		Debug.Log("RESET SHOT FORCE");
+		powerGaugeRef.value = shotForce; // RESET SHOT FORCE
+		powerGaugeRef2.fillAmount = shotForce; // RESET SHOT FORCE
+
 	}
 
 	public void ChargeShot(){
@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour {
 		turret.transform.Rotate(-Vector3.right * Time.deltaTime * tiltSpeed);
 
 		//--------------------------------------------------------------------
+		/*
 		float minRotation = -90.0f;
 		float maxRotation = 90.0f;
 
@@ -98,6 +99,7 @@ public class GameManager : MonoBehaviour {
 
 		Debug.Log(currentRotation);
 		turret.transform.localEulerAngles = new Vector3(currentRotation, 0, 0);
+		*/
 		//--------------------------------------------------------------------
 
 
@@ -107,11 +109,13 @@ public class GameManager : MonoBehaviour {
 		turret.transform.Rotate(Vector3.right * Time.deltaTime * tiltSpeed);
 
 		//--------------------------------------------------------------------
+		/*
 		float minRotation = -90.0f;
 		float maxRotation = 90.0f;
 
 		Vector3 currentRotation = turret.transform.localRotation.eulerAngles;
 		currentRotation.x = Mathf.Clamp(currentRotation.x, minRotation, maxRotation);
+		*/
 		//turret.transform.localRotation = Quaternion.Euler(currentRotation);
 		//--------------------------------------------------------------------
 	}
