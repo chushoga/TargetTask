@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour {
 		shotForceRef = shotForceText.GetComponent<Text>();
 		powerGaugeRef = powerGauge.GetComponent<Slider>();
 		powerGaugeRef2 = powerGauge2.GetComponent<Image>();
-
 	}
 	
 	// Update is called once per frame
@@ -88,10 +87,33 @@ public class GameManager : MonoBehaviour {
 
 	public void TiltUp(){		
 		turret.transform.Rotate(-Vector3.right * Time.deltaTime * tiltSpeed);
+
+		//--------------------------------------------------------------------
+		float minRotation = -90.0f;
+		float maxRotation = 90.0f;
+
+		float currentRotation = turret.transform.localEulerAngles.x;
+
+		currentRotation = Mathf.Clamp(currentRotation, minRotation, maxRotation);
+
+		Debug.Log(currentRotation);
+		turret.transform.localEulerAngles = new Vector3(currentRotation, 0, 0);
+		//--------------------------------------------------------------------
+
+
 	}
 
 	public void TiltDown(){		
 		turret.transform.Rotate(Vector3.right * Time.deltaTime * tiltSpeed);
+
+		//--------------------------------------------------------------------
+		float minRotation = -90.0f;
+		float maxRotation = 90.0f;
+
+		Vector3 currentRotation = turret.transform.localRotation.eulerAngles;
+		currentRotation.x = Mathf.Clamp(currentRotation.x, minRotation, maxRotation);
+		//turret.transform.localRotation = Quaternion.Euler(currentRotation);
+		//--------------------------------------------------------------------
 	}
 
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - OutOfBounds_Platform
   - OutOfBounds_Level
+  - Ammo
+  - Target
+  - Obsticle
   layers:
   - Default
   - TransparentFX

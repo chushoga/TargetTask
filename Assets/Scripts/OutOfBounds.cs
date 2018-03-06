@@ -5,7 +5,7 @@ using UnityEngine;
 public class OutOfBounds : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
-		Destroy(col);
+		Destroy(col.gameObject);
 	}
 
 	// Use this for initialization

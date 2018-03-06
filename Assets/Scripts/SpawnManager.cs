@@ -9,11 +9,9 @@ public class SpawnManager : MonoBehaviour {
 	public float platformSpeed; // speed at which the platform moves
 	public float targetSpawnRate; // rate at which targets spawn;
 	public float obsticleSpawnRate; // rate at which targets spawn;
-	public GameObject startPosition;
-	public GameObject endPosition;
 
-	public GameObject targetSpawnPoint;
-	public GameObject obsitcleSpawnPoint;
+	public GameObject targetSpawnPoint; // where the targets start spawing starts on the left side of the screen
+	public GameObject obsitcleSpawnPoint; // where the obsitcles start spawing starts on the left side of the screen
 	public GameObject platform;
 	public List<GameObject> groundTargets = new List<GameObject>();
 	public List<GameObject> airTargets = new List<GameObject>();
@@ -32,6 +30,8 @@ public class SpawnManager : MonoBehaviour {
 		float step = platformSpeed * Time.deltaTime;
 		platform.transform.position += Vector3.right * step;
 	}
+
+
 
 	void SpawnTargets(){
 		GameObject go = Instantiate(groundTargets[0], targetSpawnPoint.transform.position, Quaternion.identity);
