@@ -27,6 +27,8 @@ public class SpawnManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		// Move the platform to the right
+		// TODO: think of putting this option 	
 		float step = platformSpeed * Time.deltaTime;
 		platform.transform.position += Vector3.right * step;
 	}

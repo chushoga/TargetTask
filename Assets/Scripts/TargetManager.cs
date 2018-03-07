@@ -10,32 +10,23 @@ public class TargetManager : MonoBehaviour {
 	public float density;
 
 	void Start(){
-		gameObject.GetComponent<Rigidbody>().useGravity = false;
+		
+		gameObject.GetComponent<Rigidbody>().useGravity = false; // disable gravity to start if it is true.
+
 	}
 
 	void OnTriggerEnter(Collider collider){
 		
 		if (collider.gameObject.tag == "OutOfBounds_Platform"){
-			//Debug.Log("Out of bounds Platform");
+			// un parent it with the platform so it does not keep following the patform when hit.
 			gameObject.transform.SetParent(null);
-			//Destroy(gameObject, 2.0f); // destroy the game object after going out of bounds and the particle is done.
-		}
 
-		/*
-		if (collider.gameObject.tag == "OutOfBounds_Level"){
-
-			Destroy(gameObject, 3.0f); // destroy the game object after going out of bounds and the particle is done.
-			Debug.Log("Out of bounds Level");
-			//gameObject.transform.SetParent(null);
-			// add the points here
-			// spawn a point particle
 		}
-	*/
 	}
 
 	void OnCollisionEnter(Collision collision){
 		
-		gameObject.GetComponent<Rigidbody>().useGravity = true;// enable gravity
+		gameObject.GetComponent<Rigidbody>().useGravity = true; // enable gravity
 
 		// IF COLLISION IS BULLET
 		if(collision.gameObject.tag == "Bullet"){
@@ -44,6 +35,11 @@ public class TargetManager : MonoBehaviour {
 			if(explosiveForce > 0){
 				Explode(); // do the explosion here
 			}
+		}
+
+		// IF COLLISION IS BULLET
+		if(collision.gameObject.tag == "Target"){
+			Destroy(gameObject, 0.5f);
 		}
 
 	}	

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public int SCORE;
-	public float platformSpeed; // speed of the platform
 	public float shotForce;
 	public float shotForceMax;
 
@@ -85,38 +84,40 @@ public class GameManager : MonoBehaviour {
 		isTiltDown = !isTiltDown;
 	}
 
+	private float rotationX = 0f;
+
 	public void TiltUp(){		
-		turret.transform.Rotate(-Vector3.right * Time.deltaTime * tiltSpeed);
+		//turret.transform.Rotate(-Vector3.right * Time.deltaTime * tiltSpeed);
+		//Debug.Log(turret.transform.rotation.eulerAngles.x);
 
 		//--------------------------------------------------------------------
-		/*
-		float minRotation = -90.0f;
-		float maxRotation = 90.0f;
+		rotationX -= -1 * tiltSpeed * Time.deltaTime;
 
-		float currentRotation = turret.transform.localEulerAngles.x;
+		rotationX = Mathf.Clamp(rotationX, -50, 50);
 
-		currentRotation = Mathf.Clamp(currentRotation, minRotation, maxRotation);
-
-		Debug.Log(currentRotation);
-		turret.transform.localEulerAngles = new Vector3(currentRotation, 0, 0);
-		*/
+		turret.transform.localEulerAngles = new Vector3(
+			-rotationX, 
+			turret.transform.localEulerAngles.y, 
+			turret.transform.localEulerAngles.z
+		);
 		//--------------------------------------------------------------------
-
 
 	}
 
+
+
 	public void TiltDown(){		
-		turret.transform.Rotate(Vector3.right * Time.deltaTime * tiltSpeed);
-
+		//turret.transform.Rotate(Vector3.right * Time.deltaTime * tiltSpeed);
 		//--------------------------------------------------------------------
-		/*
-		float minRotation = -90.0f;
-		float maxRotation = 90.0f;
+		rotationX += -1 * tiltSpeed * Time.deltaTime;
 
-		Vector3 currentRotation = turret.transform.localRotation.eulerAngles;
-		currentRotation.x = Mathf.Clamp(currentRotation.x, minRotation, maxRotation);
-		*/
-		//turret.transform.localRotation = Quaternion.Euler(currentRotation);
+		rotationX = Mathf.Clamp(rotationX, -50, 50);
+
+		turret.transform.localEulerAngles = new Vector3(
+			-rotationX, 
+			turret.transform.localEulerAngles.y, 
+			turret.transform.localEulerAngles.z
+		);
 		//--------------------------------------------------------------------
 	}
 
