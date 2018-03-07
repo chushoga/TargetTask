@@ -22,16 +22,12 @@ public class GameManager : MonoBehaviour {
 	private Text shotForceRef;
 	public bool isCharging = false;
 	public GameObject powerGauge;
-	private Slider powerGaugeRef;
-
-	public GameObject powerGauge2;
-	private Image powerGaugeRef2;
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+	private Image powerGaugeRef;
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 	// Use this for initialization
 	void Start () {
 		shotForceRef = shotForceText.GetComponent<Text>();
-		powerGaugeRef = powerGauge.GetComponent<Slider>();
-		powerGaugeRef2 = powerGauge2.GetComponent<Image>();
+		powerGaugeRef = powerGauge.GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -50,7 +46,7 @@ public class GameManager : MonoBehaviour {
 		}
 
 		// update the shot power text
-		shotForceRef.text = "[" + Mathf.Round(shotForce) + "]";
+		shotForceRef.text = Mathf.Round(shotForce) + "";
 	}
 
 	public void Shoot(){
@@ -59,16 +55,14 @@ public class GameManager : MonoBehaviour {
 		// bullet.transform.Rotate(Vector3.left * 90);
 		isCharging = false;
 		shotForce = 0;
-		powerGaugeRef.value = shotForce; // RESET SHOT FORCE
-		powerGaugeRef2.fillAmount = shotForce; // RESET SHOT FORCE
+		powerGaugeRef.fillAmount = shotForce/200; // RESET SHOT FORCE
 
 	}
 
 	public void ChargeShot(){
 		if(shotForce < shotForceMax) {
 			shotForce += 1f;
-			powerGaugeRef.value = shotForce;
-			powerGaugeRef2.fillAmount = shotForce/200;
+			powerGaugeRef.fillAmount = shotForce/200;
 		}
 	}
 
@@ -93,7 +87,7 @@ public class GameManager : MonoBehaviour {
 		//--------------------------------------------------------------------
 		rotationX -= -1 * tiltSpeed * Time.deltaTime;
 
-		rotationX = Mathf.Clamp(rotationX, -50, 50);
+		rotationX = Mathf.Clamp(rotationX, -20, 35);
 
 		turret.transform.localEulerAngles = new Vector3(
 			-rotationX, 
@@ -111,7 +105,7 @@ public class GameManager : MonoBehaviour {
 		//--------------------------------------------------------------------
 		rotationX += -1 * tiltSpeed * Time.deltaTime;
 
-		rotationX = Mathf.Clamp(rotationX, -50, 50);
+		rotationX = Mathf.Clamp(rotationX, -20, 35);
 
 		turret.transform.localEulerAngles = new Vector3(
 			-rotationX, 
