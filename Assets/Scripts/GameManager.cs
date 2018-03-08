@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour {
 		shotForce = 0;
 		powerGaugeRef.fillAmount = shotForce/200; // RESET SHOT FORCE
 
+		//Play shot particle
+		ParticleSystem ammoPart = ammoSpawn.GetComponentInChildren<ParticleSystem>();
+		ammoPart.Play();
 	}
 
 	public void ChargeShot(){
