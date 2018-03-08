@@ -12,8 +12,13 @@ public class GameManager : MonoBehaviour {
 	//TURRET
 	public bool isTiltUp = false;
 	public bool isTiltDown = false;
+	public bool isTiltLeft = false;
+	public bool isTiltRight = false;
+
 	public float tiltSpeed;
-	public GameObject turret;
+	public GameObject turretBody;
+	public GameObject turretArm;
+
 	public Transform ammoSpawn;
 	public GameObject ammo;
 
@@ -39,6 +44,14 @@ public class GameManager : MonoBehaviour {
 
 		if(isTiltDown){
 			TiltDown();
+		}
+
+		if(isTiltLeft){
+			TiltLeft();
+		}
+
+		if(isTiltRight){
+			TiltRight();
 		}
 
 		if(isCharging) {
@@ -81,41 +94,55 @@ public class GameManager : MonoBehaviour {
 		isTiltDown = !isTiltDown;
 	}
 
-	private float rotationX = 0f;
-
-	public void TiltUp(){		
-		//turret.transform.Rotate(-Vector3.right * Time.deltaTime * tiltSpeed);
-		//Debug.Log(turret.transform.rotation.eulerAngles.x);
-
-		//--------------------------------------------------------------------
-		rotationX -= -1 * tiltSpeed * Time.deltaTime;
-
-		rotationX = Mathf.Clamp(rotationX, -20, 35);
-
-		turret.transform.localEulerAngles = new Vector3(
-			-rotationX, 
-			turret.transform.localEulerAngles.y, 
-			turret.transform.localEulerAngles.z
-		);
-		//--------------------------------------------------------------------
-
+	public void SetTiltLeft(){
+		isTiltLeft = !isTiltLeft;
 	}
 
+	public void SetTiltRight(){
+		isTiltRight = !isTiltRight;
+	}
 
+	private float rotationX = 0f;
+	private float rotationZ = 0f;
 
-	public void TiltDown(){		
-		//turret.transform.Rotate(Vector3.right * Time.deltaTime * tiltSpeed);
-		//--------------------------------------------------------------------
-		rotationX += -1 * tiltSpeed * Time.deltaTime;
-
+	public void TiltUp(){
+		rotationX -= -1 * tiltSpeed * Time.deltaTime;
 		rotationX = Mathf.Clamp(rotationX, -20, 35);
-
-		turret.transform.localEulerAngles = new Vector3(
+		turretBody.transform.localEulerAngles = new Vector3(
 			-rotationX, 
-			turret.transform.localEulerAngles.y, 
-			turret.transform.localEulerAngles.z
+			turretBody.transform.localEulerAngles.y, 
+			turretBody.transform.localEulerAngles.z
 		);
-		//--------------------------------------------------------------------
+	}
+
+	public void TiltDown(){
+		rotationX += -1 * tiltSpeed * Time.deltaTime;
+		rotationX = Mathf.Clamp(rotationX, -20, 35);
+		turretBody.transform.localEulerAngles = new Vector3(
+			-rotationX, 
+			turretBody.transform.localEulerAngles.y, 
+			turretBody.transform.localEulerAngles.z
+		);
+	}
+
+	public void TiltLeft(){
+		rotationZ += -1 * tiltSpeed * Time.deltaTime;
+		rotationZ = Mathf.Clamp(-30, 30, rotationZ);
+		turretArm.transform.localEulerAngles = new Vector3(
+			turretArm.transform.localEulerAngles.x, 
+			turretArm.transform.localEulerAngles.y,
+			-rotationZ
+		);
+	}
+
+	public void TiltRight(){
+		rotationZ -= -1 * tiltSpeed * Time.deltaTime;
+		rotationZ = Mathf.Clamp(-30, 30, rotationZ);
+		turretArm.transform.localEulerAngles = new Vector3(
+			turretArm.transform.localEulerAngles.x, 
+			turretArm.transform.localEulerAngles.y,
+			-rotationZ 
+		);
 	}
 
 }
