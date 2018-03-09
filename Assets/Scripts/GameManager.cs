@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 	public bool isTiltRight = false;
 
 	public float tiltSpeed;
+	public float rotSpeed;
 	public GameObject turretBody;
 	public GameObject turretArm;
 
@@ -126,23 +127,44 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void TiltLeft(){
-		rotationZ += -1 * tiltSpeed * Time.deltaTime;
-		rotationZ = Mathf.Clamp(-30, 30, rotationZ);
+		rotationZ += -1 * rotSpeed * Time.deltaTime;
+		rotationZ = Mathf.Clamp(rotationZ, -30, 30);
+
+		//Debug.Log(rotationZ);
+		if(rotationZ > -30 && rotationZ < 30){
+			turretArm.transform.Rotate(-Vector3.forward * rotSpeed * Time.deltaTime);	
+		}
+
+
+		/*
 		turretArm.transform.localEulerAngles = new Vector3(
 			turretArm.transform.localEulerAngles.x, 
 			turretArm.transform.localEulerAngles.y,
 			-rotationZ
 		);
+*/
 	}
 
+
 	public void TiltRight(){
-		rotationZ -= -1 * tiltSpeed * Time.deltaTime;
-		rotationZ = Mathf.Clamp(-30, 30, rotationZ);
+		rotationZ -= -1 * rotSpeed * Time.deltaTime;
+		rotationZ = Mathf.Clamp(rotationZ, -30, 30);
+
+		//Debug.Log(rotationZ);
+		if(rotationZ > -30 && rotationZ < 30){
+			turretArm.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);	
+		}
+		//turretArm.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
+
+
+		/*
 		turretArm.transform.localEulerAngles = new Vector3(
 			turretArm.transform.localEulerAngles.x, 
 			turretArm.transform.localEulerAngles.y,
 			-rotationZ 
 		);
+		*/
 	}
+
 
 }
