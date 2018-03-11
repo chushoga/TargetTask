@@ -2761,7 +2761,7 @@ MonoBehaviour:
   isTiltLeft: 0
   isTiltRight: 0
   tiltSpeed: 100
-  rotSpeed: 20
+  rotSpeed: 100
   turretBody: {fileID: 1970246758}
   turretArm: {fileID: 178617818}
   ammoSpawn: {fileID: 1500234576}
