@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	public int SCORE;
+	public static int SCORE = 0;
 	public float shotForce;
 	public float shotForceMax;
 
