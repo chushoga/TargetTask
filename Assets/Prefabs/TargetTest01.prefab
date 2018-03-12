@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  points: 10
   explosiveForce: 0
   explosiveLift: 0
   density: 0

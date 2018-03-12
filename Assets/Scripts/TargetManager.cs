@@ -5,6 +5,8 @@ using UnityEngine;
 public class TargetManager : MonoBehaviour {
 
 	public float health;
+	public int points; // points for destroying/hitting the target
+	private bool hasCounted; // has the point been counted yet?
 	public float explosiveForce;
 	public float explosiveLift;
 	public float density;
@@ -29,12 +31,11 @@ public class TargetManager : MonoBehaviour {
 		gameObject.GetComponent<Rigidbody>().useGravity = true; // enable gravity
 
 		// IF COLLISION IS BULLET
-		if(collision.gameObject.tag == "Bullet"){
-
+		if(collision.gameObject.tag == "Ammo"){
+			GameManager.SCORE += points;
 			// check if this item is a bomb or not.
-			if(explosiveForce > 0){
-				Explode(); // do the explosion here
-			}
+			//Explode(); 
+
 		}
 
 		// IF COLLISION IS BULLET
@@ -45,7 +46,8 @@ public class TargetManager : MonoBehaviour {
 	}	
 
 	void Explode(){
-		//Debug.Log("explode");
+		
+		Debug.Log("explode");
 	}
 
 }
