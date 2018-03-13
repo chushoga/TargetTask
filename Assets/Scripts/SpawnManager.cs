@@ -7,11 +7,13 @@ public class SpawnManager : MonoBehaviour {
 	public bool isSpawning = true;
 
 	public float platformSpeed; // speed at which the platform moves
-	public float targetSpawnRate; // rate at which targets spawn;
+	public float groundTargetSpawnRate; // rate at which targets spawn;
+	public float airTargetSpawnRate; // rate at which the air targets spawn
 	public float obsticleSpawnRate; // rate at which targets spawn;
 
-	public GameObject targetSpawnPoint; // where the targets start spawing starts on the left side of the screen
+	public GameObject groundTargetSpawnPoint; // where the targets start spawing starts on the left side of the screen
 	public GameObject obsitcleSpawnPoint; // where the obsitcles start spawing starts on the left side of the screen
+	public GameObject airTargetSpawnPoint; // where the obsticles start spawing in the air
 	public GameObject platform;
 	public List<GameObject> groundTargets = new List<GameObject>();
 	public List<GameObject> airTargets = new List<GameObject>();
@@ -21,7 +23,8 @@ public class SpawnManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(SpawnTimer());
+		StartCoroutine(GroundSpawnTimer());
+		StartCoroutine(AirSpawnTimer());
 		StartCoroutine(ObsticleSpawnTimer());
 	}
 	
@@ -34,9 +37,15 @@ public class SpawnManager : MonoBehaviour {
 	}
 
 
+	void SpawnGroundTargets(){
+		//Debug.Log(ChooseRandomSpawn(groundTargets) + " <-->" + groundTargets[ChooseRandomSpawn(groundTargets)].name);
 
-	void SpawnTargets(){
-		GameObject go = Instantiate(groundTargets[0], targetSpawnPoint.transform.position, Quaternion.identity);
+		GameObject go = Instantiate(groundTargets[ChooseRandomSpawn(groundTargets)], groundTargetSpawnPoint.transform.position, Quaternion.identity);
+		go.transform.parent = platform.transform;
+	}
+
+	void SpawnAirTargets(){
+		GameObject go = Instantiate(airTargets[0], airTargetSpawnPoint.transform.position, Quaternion.identity);
 		go.transform.parent = platform.transform;
 	}
 
@@ -45,10 +54,17 @@ public class SpawnManager : MonoBehaviour {
 		go.transform.parent = platform.transform;
 	}
 
-	public IEnumerator SpawnTimer(){
+	public IEnumerator GroundSpawnTimer(){
 		while(isSpawning){
-			yield return new WaitForSeconds(targetSpawnRate);
-			SpawnTargets();
+			yield return new WaitForSeconds(groundTargetSpawnRate);
+			SpawnGroundTargets();
+		}
+	}
+
+	public IEnumerator AirSpawnTimer(){
+		while(isSpawning) {
+			yield return new WaitForSeconds(airTargetSpawnRate);
+			SpawnAirTargets();
 		}
 	}
 
@@ -60,5 +76,50 @@ public class SpawnManager : MonoBehaviour {
 	}
 
 
+	// Return a random object to pawn from the list.
+	public int ChooseRandomSpawn(List<GameObject> list){
+
+		int index = 0;
+		int x = 0;
+		int startFrom;
+
+		// get random number from result start
+		startFrom = Random.Range(0, TotalRarity(list));
+		x -= startFrom;
+		for(int i = 0; i < list.Count; i++){
+
+			index = i;
+
+			TargetManager tmScript = list[i].GetComponentInChildren<TargetManager>();
+
+			int rarity = tmScript.rarity;
+
+			if(x < 0){
+				break;
+			}
+			
+			x -= rarity;
+
+		}
+	
+		return index;
+	}
+
+	// get sum of all Rarities for the Random Spawner
+	private int TotalRarity(List<GameObject> list){
+		
+		int x = 0;
+
+		for(int i = 0; i < list.Count; i++){
+			
+			TargetManager tmScript = list[i].GetComponentInChildren<TargetManager>();
+			int rarity = tmScript.rarity;
+
+			x += rarity;
+
+		}
+
+		return x;
+	}
 
 }

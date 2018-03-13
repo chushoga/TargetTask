@@ -7,6 +7,7 @@ public class TargetManager : MonoBehaviour {
 	public float health;
 	public int points; // points for destroying/hitting the target
 	private bool hasCounted; // has the point been counted yet?
+	public int rarity; // rarity of the target.
 	public float explosiveForce;
 	public float explosiveLift;
 	public float density;
