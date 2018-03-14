@@ -21,37 +21,31 @@ public class SpawnManager : MonoBehaviour {
 	public List<GameObject> obsticalTargets = new List<GameObject>();
 	public List<GameObject> powerUpTargets = new List<GameObject>();
 
-	// Use this for initialization
+
 	void Start () {
-		StartCoroutine(GroundSpawnTimer());
-		StartCoroutine(AirSpawnTimer());
-		StartCoroutine(ObsticleSpawnTimer());
+		
+		StartCoroutine(GroundSpawnTimer()); // start spawn timer
+		StartCoroutine(AirSpawnTimer()); // start spawn timer
+		StartCoroutine(ObsticleSpawnTimer()); // start spawn timer
+
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
+		
 		// Move the platform to the right
-		// TODO: think of putting this option 	
-		float step = platformSpeed * Time.deltaTime;
-		platform.transform.position += Vector3.right * step;
+		// TODO: think of putting this option
+		platform.transform.position += Vector3.right * platformSpeed * Time.deltaTime;
+
 	}
 
-
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
+	// GROUND TARGETS
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
 	void SpawnGroundTargets(){
-		//Debug.Log(ChooseRandomSpawn(groundTargets) + " <-->" + groundTargets[ChooseRandomSpawn(groundTargets)].name);
-
+		
 		GameObject go = Instantiate(groundTargets[ChooseRandomSpawn(groundTargets)], groundTargetSpawnPoint.transform.position, Quaternion.identity);
 		go.transform.parent = platform.transform;
-	}
 
-	void SpawnAirTargets(){
-		GameObject go = Instantiate(airTargets[0], airTargetSpawnPoint.transform.position, Quaternion.identity);
-		go.transform.parent = platform.transform;
-	}
-
-	void SpawnObsicles(){
-		GameObject go = Instantiate(obsticalTargets[0], obsitcleSpawnPoint.transform.position, Quaternion.identity);
-		go.transform.parent = platform.transform;
 	}
 
 	public IEnumerator GroundSpawnTimer(){
@@ -61,11 +55,31 @@ public class SpawnManager : MonoBehaviour {
 		}
 	}
 
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
+	// AIR TARGETS
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
+	void SpawnAirTargets(){
+		
+		GameObject go = Instantiate(airTargets[ChooseRandomSpawn(airTargets)], airTargetSpawnPoint.transform.position, Quaternion.identity);
+		go.transform.parent = platform.transform;
+
+	}
+
 	public IEnumerator AirSpawnTimer(){
 		while(isSpawning) {
 			yield return new WaitForSeconds(airTargetSpawnRate);
 			SpawnAirTargets();
 		}
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
+	// OBSTICLES
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
+	void SpawnObsicles(){
+		
+		GameObject go = Instantiate(obsticalTargets[ChooseRandomSpawn(obsticalTargets)], obsitcleSpawnPoint.transform.position, Quaternion.identity);
+		go.transform.parent = platform.transform;
+
 	}
 
 	public IEnumerator ObsticleSpawnTimer(){
@@ -75,51 +89,68 @@ public class SpawnManager : MonoBehaviour {
 		}
 	}
 
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
+	// OTHER FUNCTIONS
+	// ---------------------------------------------------------------------------------------------------------------------------------------------
 
-	// Return a random object to pawn from the list.
+	// Return an index for a random object to spawn from a list of prefabs.
+	// This will return and index depending on the prefabs rarity weight.
+	// Keep rarity between 0.001 - 100 on prefab stats.
 	public int ChooseRandomSpawn(List<GameObject> list){
 
-		int index = 0;
-		int x = 0;
-		int startFrom;
+		float x = 0; // counter
+		float totalRarity = 0; // tht total rarity weight of all in the list
+		int index = 0; // return this index
 
-		// get random number from result start
-		startFrom = Random.Range(0, TotalRarity(list));
-		x -= startFrom;
-		for(int i = 0; i < list.Count; i++){
+		if(list.Count >= 0) {
 
-			index = i;
+			// get total rarity
+			for(int i = 0; i < list.Count; i++) {
 
-			TargetManager tmScript = list[i].GetComponentInChildren<TargetManager>();
-
-			int rarity = tmScript.rarity;
-
-			if(x < 0){
-				break;
+				// check if target or obsticle
+				if(list[i].GetComponentsInChildren<TargetManager>().Length != 0) {
+					TargetManager tmScript = list[i].GetComponentInChildren<TargetManager>();
+					totalRarity += tmScript.rarity;
+				} else {					
+					ObsticleManager tmScript = list[i].GetComponentInChildren<ObsticleManager>();
+					totalRarity += tmScript.rarity;
+				}
 			}
-			
-			x -= rarity;
 
+			// get random number from the total rarity weight
+			x = Random.Range(0, totalRarity);
+
+			// Step through the list and check if x is less than the rarity.
+			// If x is less than the rarity then break out of the loop and 
+			// return the index;
+			for(int i = 0; i < list.Count; i++) {
+
+				index = i;
+
+				//TargetManager tmScript = list[i].GetComponentInChildren<TargetManager>();
+				//float rarity = tmScript.rarity;
+				float rarity = 0;
+
+				// check if target or obsticle
+				if(list[i].GetComponentsInChildren<TargetManager>().Length != 0) {
+					TargetManager tmScript = list[i].GetComponentInChildren<TargetManager>();
+					rarity = tmScript.rarity;
+				} else {					
+					ObsticleManager tmScript = list[i].GetComponentInChildren<ObsticleManager>();
+					rarity = tmScript.rarity;
+				}
+
+
+				if(x <= rarity) {
+					break;
+				}
+				
+				x -= rarity;
+
+			}
 		}
-	
 		return index;
 	}
 
-	// get sum of all Rarities for the Random Spawner
-	private int TotalRarity(List<GameObject> list){
-		
-		int x = 0;
-
-		for(int i = 0; i < list.Count; i++){
-			
-			TargetManager tmScript = list[i].GetComponentInChildren<TargetManager>();
-			int rarity = tmScript.rarity;
-
-			x += rarity;
-
-		}
-
-		return x;
-	}
 
 }

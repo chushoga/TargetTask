@@ -730,7 +730,7 @@ MonoBehaviour:
   platformSpeed: 3
   groundTargetSpawnRate: 1
   airTargetSpawnRate: 1
-  obsticleSpawnRate: 5
+  obsticleSpawnRate: 0.5
   groundTargetSpawnPoint: {fileID: 1960810826}
   obsitcleSpawnPoint: {fileID: 26023606}
   airTargetSpawnPoint: {fileID: 38318700}
@@ -738,11 +738,13 @@ MonoBehaviour:
   groundTargets:
   - {fileID: 1603454644978562, guid: 84ef9c78f1a16be429fb457648a91356, type: 2}
   - {fileID: 1882535464864248, guid: 4796c22f00ea98d49a84ac22e9db06ff, type: 2}
+  - {fileID: 1603454644978562, guid: 61ffeb4b4796fad478831b7517ec9790, type: 2}
   airTargets:
   - {fileID: 1882535464864248, guid: 4796c22f00ea98d49a84ac22e9db06ff, type: 2}
   bonusTargets: []
   obsticalTargets:
   - {fileID: 1320454974250356, guid: 9e1e84cb79b07bc42b09fa19102006ce, type: 2}
+  - {fileID: 1320454974250356, guid: 7acb2f2778d24cc4fbd66fea0dd941be, type: 2}
   powerUpTargets: []
 --- !u!4 &545031572
 Transform:
