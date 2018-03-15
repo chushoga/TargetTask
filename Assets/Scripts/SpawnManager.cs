@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour {
 		
 		// Move the platform to the right
 		// TODO: think of putting this option
-		platform.transform.position += Vector3.right * platformSpeed * Time.deltaTime;
+		//platform.transform.position += Vector3.right * platformSpeed * Time.deltaTime;
 
 	}
 
@@ -44,7 +44,7 @@ public class SpawnManager : MonoBehaviour {
 	void SpawnGroundTargets(){
 		
 		GameObject go = Instantiate(groundTargets[ChooseRandomSpawn(groundTargets)], groundTargetSpawnPoint.transform.position, Quaternion.identity);
-		go.transform.parent = platform.transform;
+		//go.transform.parent = platform.transform;
 
 	}
 
@@ -59,9 +59,11 @@ public class SpawnManager : MonoBehaviour {
 	// AIR TARGETS
 	// ---------------------------------------------------------------------------------------------------------------------------------------------
 	void SpawnAirTargets(){
-		
-		GameObject go = Instantiate(airTargets[ChooseRandomSpawn(airTargets)], airTargetSpawnPoint.transform.position, Quaternion.identity);
-		go.transform.parent = platform.transform;
+
+		Vector3 randomX = new Vector3(airTargetSpawnPoint.transform.position.x, airTargetSpawnPoint.transform.position.y + Random.Range(-1.0f, 1), airTargetSpawnPoint.transform.position.z);
+
+		GameObject go = Instantiate(airTargets[ChooseRandomSpawn(airTargets)], randomX, Quaternion.identity);
+		//go.transform.parent = platform.transform;
 
 	}
 
@@ -78,7 +80,7 @@ public class SpawnManager : MonoBehaviour {
 	void SpawnObsicles(){
 		
 		GameObject go = Instantiate(obsticalTargets[ChooseRandomSpawn(obsticalTargets)], obsitcleSpawnPoint.transform.position, Quaternion.identity);
-		go.transform.parent = platform.transform;
+		//go.transform.parent = platform.transform;
 
 	}
 

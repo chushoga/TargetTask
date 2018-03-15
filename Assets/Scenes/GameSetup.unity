@@ -198,8 +198,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 164905432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25000, y: -0.63, z: 0.01}
-  m_LocalScale: {x: 50000, y: 0.5, z: 1.31}
+  m_LocalPosition: {x: 0, y: 0, z: -0.16}
+  m_LocalScale: {x: 23.8, y: 0.5, z: 1.31}
   m_Children: []
   m_Father: {fileID: 1334278722}
   m_RootOrder: 0
@@ -730,7 +730,7 @@ MonoBehaviour:
   platformSpeed: 3
   groundTargetSpawnRate: 1
   airTargetSpawnRate: 1
-  obsticleSpawnRate: 0.5
+  obsticleSpawnRate: 2
   groundTargetSpawnPoint: {fileID: 1960810826}
   obsitcleSpawnPoint: {fileID: 26023606}
   airTargetSpawnPoint: {fileID: 38318700}
@@ -1476,7 +1476,7 @@ Transform:
   m_GameObject: {fileID: 711130850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: -7.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 158565815}
   - {fileID: 521961363}
@@ -2436,7 +2436,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334278721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.53, y: 0.63, z: 1.25}
+  m_LocalPosition: {x: 5.53, y: -0.09, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 164905433}
@@ -2662,7 +2662,6 @@ MonoBehaviour:
   ammoSpawn: {fileID: 1500234576}
   ammo: {fileID: 1978769367933842, guid: 47aeaeea31b97e4458fa1287c96619e5, type: 2}
   shotForceText: {fileID: 1598229522}
-  isCharging: 0
   powerGauge: {fileID: 1422909852}
 --- !u!1001 &1578606104
 Prefab:

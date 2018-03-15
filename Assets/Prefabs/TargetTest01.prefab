@@ -155,6 +155,7 @@ MonoBehaviour:
   health: 0
   points: 10
   rarity: 80
+  speed: 1.5
   explosiveForce: 0
   explosiveLift: 0
   density: 0

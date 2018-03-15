@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 	// GUI
 	public GameObject shotForceText;
 	private Text shotForceRef;
-	public bool isCharging = false;
+	private bool isCharging = false;
 	public GameObject powerGauge;
 	private Image powerGaugeRef;
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour {
 
 	public void TiltUp(){
 		rotationX -= -1 * tiltSpeed * Time.deltaTime;
-		rotationX = Mathf.Clamp(rotationX, -20, 35);
+		rotationX = Mathf.Clamp(rotationX, -20, 45);
 		turretBody.transform.localEulerAngles = new Vector3(
 			-rotationX, 
 			turretBody.transform.localEulerAngles.y, 
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour {
 
 	public void TiltDown(){
 		rotationX += -1 * tiltSpeed * Time.deltaTime;
-		rotationX = Mathf.Clamp(rotationX, -20, 35);
+		rotationX = Mathf.Clamp(rotationX, -20, 45);
 		turretBody.transform.localEulerAngles = new Vector3(
 			-rotationX, 
 			turretBody.transform.localEulerAngles.y, 
@@ -128,10 +128,10 @@ public class GameManager : MonoBehaviour {
 
 	public void TiltLeft(){
 		rotationZ += -1 * rotSpeed * Time.deltaTime;
-		rotationZ = Mathf.Clamp(rotationZ, -30, 30);
+		rotationZ = Mathf.Clamp(rotationZ, -30, 35);
 
 		//Debug.Log(rotationZ);
-		if(rotationZ > -30 && rotationZ < 30){
+		if(rotationZ > -30 && rotationZ < 35){
 			turretArm.transform.Rotate(-Vector3.forward * rotSpeed * Time.deltaTime);	
 		}
 
@@ -148,10 +148,10 @@ public class GameManager : MonoBehaviour {
 
 	public void TiltRight(){
 		rotationZ -= -1 * rotSpeed * Time.deltaTime;
-		rotationZ = Mathf.Clamp(rotationZ, -30, 30);
+		rotationZ = Mathf.Clamp(rotationZ, -30, 35);
 
 		//Debug.Log(rotationZ);
-		if(rotationZ > -30 && rotationZ < 30){
+		if(rotationZ > -30 && rotationZ < 35){
 			turretArm.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);	
 		}
 		//turretArm.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
