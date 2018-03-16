@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour {
 	public void Shoot(){
 		GameObject bullet = Instantiate(ammo, ammoSpawn.transform.position, ammoSpawn.transform.rotation);
 		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (shotForce / 2);
-		// bullet.transform.Rotate(Vector3.left * 90);
+
 		isCharging = false;
 		shotForce = 0;
 		powerGaugeRef.fillAmount = shotForce/200; // RESET SHOT FORCE
@@ -135,14 +135,6 @@ public class GameManager : MonoBehaviour {
 			turretArm.transform.Rotate(-Vector3.forward * rotSpeed * Time.deltaTime);	
 		}
 
-
-		/*
-		turretArm.transform.localEulerAngles = new Vector3(
-			turretArm.transform.localEulerAngles.x, 
-			turretArm.transform.localEulerAngles.y,
-			-rotationZ
-		);
-*/
 	}
 
 
@@ -154,16 +146,7 @@ public class GameManager : MonoBehaviour {
 		if(rotationZ > -30 && rotationZ < 35){
 			turretArm.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);	
 		}
-		//turretArm.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
 
-
-		/*
-		turretArm.transform.localEulerAngles = new Vector3(
-			turretArm.transform.localEulerAngles.x, 
-			turretArm.transform.localEulerAngles.y,
-			-rotationZ 
-		);
-		*/
 	}
 
 

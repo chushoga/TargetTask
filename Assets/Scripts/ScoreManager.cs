@@ -18,7 +18,4 @@ public class ScoreManager : MonoBehaviour {
 		score.text = "" + GameManager.SCORE;
 	}
 
-	void AddScore(){
-		
-	}
 }

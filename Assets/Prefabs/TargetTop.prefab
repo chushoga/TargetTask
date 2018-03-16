@@ -161,3 +161,4 @@ MonoBehaviour:
   explosiveForce: 0
   explosiveLift: 0
   density: 0
+  moveDir: 1

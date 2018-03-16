@@ -12,6 +12,7 @@ public class TargetManager : MonoBehaviour {
 	public float explosiveForce;
 	public float explosiveLift;
 	public float density;
+	public bool moveDir;
 
 	private bool isMoving = true;
 
@@ -23,7 +24,11 @@ public class TargetManager : MonoBehaviour {
 
 	void FixedUpdate(){
 		if(isMoving) {
-			transform.position += Vector3.right * speed * Time.deltaTime;
+			if(moveDir == false) {
+				transform.position += Vector3.right * speed * Time.deltaTime;
+			} else {
+				transform.position += -Vector3.right * speed * Time.deltaTime;
+			}
 		}
 	}
 
@@ -42,12 +47,13 @@ public class TargetManager : MonoBehaviour {
 		//gameObject.transform.SetParent(null); // clear parent? is this needed now?
 
 		// IF COLLISION IS BULLET
-		if(collision.gameObject.tag == "Ammo"){
+		if(collision.gameObject.tag == "Ammo") {
 			GameManager.SCORE += points;
 		}
 
-		// IF COLLISION IS BULLET
+		// IF COLLISION IS TARGET
 		if(collision.gameObject.tag == "Target"){
+			GameManager.SCORE += collision.gameObject.GetComponent<TargetManager>().points;
 			Destroy(gameObject, 0.5f);
 		}
 
