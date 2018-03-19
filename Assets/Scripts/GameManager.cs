@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public static int SCORE = 0;
+	public static float TIME_REMAINING = 60.0f;
+	public bool IS_PAUSED = false;
 	public float shotForce;
 	public float shotForceMax;
 
@@ -34,6 +36,9 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		shotForceRef = shotForceText.GetComponent<Text>();
 		powerGaugeRef = powerGauge.GetComponent<Image>();
+
+		// start game timer
+		StartCoroutine("TimeRemaining");
 	}
 	
 	// Update is called once per frame
@@ -145,6 +150,21 @@ public class GameManager : MonoBehaviour {
 		//Debug.Log(rotationZ);
 		if(rotationZ > -30 && rotationZ < 35){
 			turretArm.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);	
+		}
+
+	}
+
+	private IEnumerator TimeRemaining(){
+		
+		while(TIME_REMAINING > 0) {
+			
+			if(!IS_PAUSED) {
+				yield return new WaitForSeconds(1);
+				TIME_REMAINING -= 1;
+			} else {
+				yield return null;
+			}
+
 		}
 
 	}
