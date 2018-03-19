@@ -6,6 +6,7 @@ public class TargetManager : MonoBehaviour {
 
 	public float health;
 	public int points; // points for destroying/hitting the target
+	public int plusTime = 0; // extra time to add if hit.
 	private bool hasCounted; // has the point been counted yet?
 	public float rarity; // rarity of the target.
 	public float speed; // movement speed
@@ -49,6 +50,7 @@ public class TargetManager : MonoBehaviour {
 		// IF COLLISION IS BULLET
 		if(collision.gameObject.tag == "Ammo") {
 			GameManager.SCORE += points;
+			GameManager.TIME_REMAINING += plusTime;
 		}
 
 		// IF COLLISION IS TARGET

@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   points: 100
+  plusTime: 100
   rarity: 5
   speed: 2
   explosiveForce: 0

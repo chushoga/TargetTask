@@ -49,9 +49,14 @@ public class SpawnManager : MonoBehaviour {
 	}
 
 	public IEnumerator GroundSpawnTimer(){
-		while(isSpawning){
-			yield return new WaitForSeconds(groundTargetSpawnRate);
-			SpawnGroundTargets();
+		
+		while(GameManager.TIME_REMAINING > 0){
+			if(isSpawning){
+				yield return new WaitForSeconds(groundTargetSpawnRate);
+				SpawnGroundTargets();
+			} else{
+				yield return null;
+			}
 		}
 	}
 
