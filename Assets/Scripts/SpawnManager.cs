@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
 
-	public bool isSpawning = true;
+	private bool isSpawning = true; // keep spawning as long as this is true. If set to false all the spawing will stop.
 
-	public float platformSpeed; // speed at which the platform moves
 	public float groundTargetSpawnRate; // rate at which targets spawn;
 	public float airTargetSpawnRate; // rate at which the air targets spawn
 	public float obsticleSpawnRate; // rate at which targets spawn;
@@ -14,13 +13,14 @@ public class SpawnManager : MonoBehaviour {
 	public GameObject groundTargetSpawnPoint; // where the targets start spawing starts on the left side of the screen
 	public GameObject obsitcleSpawnPoint; // where the obsitcles start spawing starts on the left side of the screen
 	public GameObject airTargetSpawnPoint; // where the obsticles start spawing in the air
-	public GameObject platform;
+
 	public List<GameObject> groundTargets = new List<GameObject>();
 	public List<GameObject> airTargets = new List<GameObject>();
 	public List<GameObject> bonusTargets = new List<GameObject>();
 	public List<GameObject> obsticalTargets = new List<GameObject>();
 	public List<GameObject> powerUpTargets = new List<GameObject>();
 
+	private GameObject targetContainer; // a container for the spawned targets. This is just for keeping editor clean.
 
 	void Start () {
 		
@@ -28,13 +28,8 @@ public class SpawnManager : MonoBehaviour {
 		StartCoroutine(AirSpawnTimer()); // start spawn timer
 		StartCoroutine(ObsticleSpawnTimer()); // start spawn timer
 
-	}
-
-	void FixedUpdate () {
-		
-		// Move the platform to the right
-		// TODO: think of putting this option
-		//platform.transform.position += Vector3.right * platformSpeed * Time.deltaTime;
+		targetContainer = new GameObject();
+		targetContainer.name = "TARGET_CONTAINER";
 
 	}
 
@@ -44,7 +39,7 @@ public class SpawnManager : MonoBehaviour {
 	void SpawnGroundTargets(){
 		
 		GameObject go = Instantiate(groundTargets[ChooseRandomSpawn(groundTargets)], groundTargetSpawnPoint.transform.position, Quaternion.identity);
-		//go.transform.parent = platform.transform;
+		go.transform.parent = targetContainer.transform;
 
 	}
 
@@ -68,7 +63,7 @@ public class SpawnManager : MonoBehaviour {
 		Vector3 randomX = new Vector3(airTargetSpawnPoint.transform.position.x, airTargetSpawnPoint.transform.position.y + Random.Range(-1.0f, 1), airTargetSpawnPoint.transform.position.z);
 
 		GameObject go = Instantiate(airTargets[ChooseRandomSpawn(airTargets)], randomX, Quaternion.identity);
-		//go.transform.parent = platform.transform;
+		go.transform.parent = targetContainer.transform;
 
 	}
 
@@ -85,7 +80,7 @@ public class SpawnManager : MonoBehaviour {
 	void SpawnObsicles(){
 		
 		GameObject go = Instantiate(obsticalTargets[ChooseRandomSpawn(obsticalTargets)], obsitcleSpawnPoint.transform.position, Quaternion.identity);
-		//go.transform.parent = platform.transform;
+		go.transform.parent = targetContainer.transform;
 
 	}
 
