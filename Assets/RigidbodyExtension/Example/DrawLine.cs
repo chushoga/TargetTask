@@ -56,7 +56,7 @@ public class DrawLine : MonoBehaviour {
     {
         var res = _rb.CalculateMovement(stepCount, timeBeteenStep, addedV, addedF);
 
-        _lr.numPositions = stepCount + 1;
+        _lr.positionCount = stepCount + 1;
         _lr.SetPosition(0, transform.position);
         for (int i = 0; i < res.Length; ++i)
         {
