@@ -2661,6 +2661,8 @@ MonoBehaviour:
   turretArm: {fileID: 178617818}
   ammoSpawn: {fileID: 1500234576}
   ammo: {fileID: 1978769367933842, guid: 47aeaeea31b97e4458fa1287c96619e5, type: 2}
+  trajectoryHelper: {fileID: 1428219849303518, guid: afce7d56a89014d40802b1a28f3b09d3,
+    type: 2}
   shotForceText: {fileID: 1598229522}
   powerGauge: {fileID: 1422909852}
 --- !u!1001 &1578606104
@@ -2914,7 +2916,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1116008270
+  randomSeed: -1067114264
   InitialModule:
     serializedVersion: 3
     enabled: 1

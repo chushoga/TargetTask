@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
 	public Transform ammoSpawn;
 	public GameObject ammo;
 
+	public GameObject trajectoryHelper;
+
 	// GUI
 	public GameObject shotForceText;
 	private Text shotForceRef;
@@ -36,6 +38,10 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		shotForceRef = shotForceText.GetComponent<Text>();
 		powerGaugeRef = powerGauge.GetComponent<Image>();
+
+		// TEMP
+		trajectoryHelper = Instantiate(trajectoryHelper, trajectoryHelper.transform.position, trajectoryHelper.transform.rotation);
+		// TEMP
 
 		// start game timer
 		StartCoroutine("TimeRemaining");
@@ -63,6 +69,18 @@ public class GameManager : MonoBehaviour {
 		if(isCharging) {
 			ChargeShot();
 		}
+
+		RaycastHit hit;
+		// do the raycast here for the target aiming.
+		if(Physics.Raycast(ammoSpawn.transform.position, ammoSpawn.transform.forward, out hit)){
+			//print("Found an object - distance: " + hit.distance);
+			print("Found an object - distance: " + hit.transform.position);
+			Debug.DrawLine(ammoSpawn.transform.position, hit.transform.position, Color.green);
+
+			trajectoryHelper.transform.position = hit.transform.position;
+
+		}
+
 
 		// update the shot power text
 		shotForceRef.text = Mathf.Round(shotForce) + "";
