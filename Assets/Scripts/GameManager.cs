@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject ammo;
 
 	public GameObject trajectoryHelper;
+	public LineRenderer trajectoryLine;
 
 	// GUI
 	public GameObject shotForceText;
@@ -39,9 +40,12 @@ public class GameManager : MonoBehaviour {
 		shotForceRef = shotForceText.GetComponent<Text>();
 		powerGaugeRef = powerGauge.GetComponent<Image>();
 
-		// TEMP
+		// TRAJECTORY HELPER START
+
+		trajectoryLine = ammoSpawn.GetComponent<LineRenderer>();
 		trajectoryHelper = Instantiate(trajectoryHelper, trajectoryHelper.transform.position, trajectoryHelper.transform.rotation);
-		// TEMP
+
+		// TRAJECTORY HELPER END
 
 		// start game timer
 		StartCoroutine("TimeRemaining");
@@ -73,11 +77,13 @@ public class GameManager : MonoBehaviour {
 		RaycastHit hit;
 		// do the raycast here for the target aiming.
 		if(Physics.Raycast(ammoSpawn.transform.position, ammoSpawn.transform.forward, out hit)){
-			//print("Found an object - distance: " + hit.distance);
-			print("Found an object - distance: " + hit.transform.position);
-			Debug.DrawLine(ammoSpawn.transform.position, hit.transform.position, Color.green);
+			//print("transform forward: " + ammoSpawn.transform.forward);
+			//print("Found an object - distance: " + hit.transform.position);
+			//Debug.DrawLine(ammoSpawn.transform.position, hit.point, Color.green);
 
-			trajectoryHelper.transform.position = hit.transform.position;
+			trajectoryHelper.transform.position = hit.point;
+			trajectoryLine.SetPosition(0, ammoSpawn.transform.position);
+			trajectoryLine.SetPosition(1, hit.point);
 
 		}
 
