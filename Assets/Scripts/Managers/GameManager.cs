@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameManager : MonoBehaviour {
 
 	public static int SCORE = 0;
-	public static float TIME_REMAINING = 60.0f;
+	public static float TIME_REMAINING = 5.0f;
 	public bool IS_PAUSED = false;
 	public float shotForce;
 	public float shotForceMax;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject ammo;
 
 	public GameObject trajectoryHelper;
-	public LineRenderer trajectoryLine;
+	private LineRenderer trajectoryLine;
 
 	// GUI
 	public GameObject shotForceText;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour {
 
 		// start game timer
 		StartCoroutine("TimeRemaining");
+
 	}
 	
 	// Update is called once per frame
@@ -94,7 +96,7 @@ public class GameManager : MonoBehaviour {
 
 	public void Shoot(){
 		GameObject bullet = Instantiate(ammo, ammoSpawn.transform.position, ammoSpawn.transform.rotation);
-		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (shotForce / 2);
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (shotForce);
 
 		isCharging = false;
 		shotForce = 0;
@@ -190,6 +192,8 @@ public class GameManager : MonoBehaviour {
 			}
 
 		}
+
+		LevelManager.ShowGameOver();
 
 	}
 

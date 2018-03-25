@@ -154,8 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   points: 10
+  plusTime: 2
   rarity: 80
   speed: 1.5
   explosiveForce: 0
   explosiveLift: 0
   density: 0
+  moveDir: 0

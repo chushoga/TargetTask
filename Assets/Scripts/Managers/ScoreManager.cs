@@ -18,8 +18,8 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		score.text = "" + GameManager.SCORE;
-		timer.text = "" + GameManager.TIME_REMAINING;
+		score.text = "" + GameManager.SCORE + "点";
+		timer.text = "" + GameManager.TIME_REMAINING + "s";
 	}
 
 }
