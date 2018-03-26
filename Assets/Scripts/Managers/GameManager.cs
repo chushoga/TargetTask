@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public static int SCORE = 0;
-	public static float TIME_REMAINING = 5.0f;
+	public float levelBaseTime = 2.0f;
+	public static float TIME_REMAINING = 2.0f;
 	public bool IS_PAUSED = false;
 	public float shotForce;
 	public float shotForceMax;
@@ -35,9 +36,13 @@ public class GameManager : MonoBehaviour {
 	private bool isCharging = false;
 	public GameObject powerGauge;
 	private Image powerGaugeRef;
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+	// MANAGERS
+	public LevelManager lm;
+
 	// Use this for initialization
 	void Start () {
+		
 		shotForceRef = shotForceText.GetComponent<Text>();
 		powerGaugeRef = powerGauge.GetComponent<Image>();
 
@@ -48,8 +53,9 @@ public class GameManager : MonoBehaviour {
 
 		// TRAJECTORY HELPER END
 
-		// start game timer
-		StartCoroutine("TimeRemaining");
+		TIME_REMAINING = levelBaseTime;
+		// Rest the static time remaining countdown to the base level time
+		StartCoroutine("TimeRemaining"); // start game timer
 
 	}
 	
@@ -193,7 +199,7 @@ public class GameManager : MonoBehaviour {
 
 		}
 
-		LevelManager.ShowGameOver();
+		lm.ShowGameOver(); // show the game over screen
 
 	}
 
