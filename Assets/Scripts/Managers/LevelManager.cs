@@ -9,8 +9,9 @@ public class LevelManager : MonoBehaviour {
 	// --------------------------------
 	// GAME OVER
 	// --------------------------------
-	public GameObject gameOverScreen;
-	private CanvasGroup gameOverPanel; 
+
+	private GameObject gameOverScreen;
+	private CanvasGroup gameOverPanel;
 
 	// --------------------------------
 	// FADE SCREEN
@@ -24,20 +25,31 @@ public class LevelManager : MonoBehaviour {
 
 	void Start(){
 
+		// SET UP GAME OVER SCREEN
+		gameOverScreen = GameObject.Find("GameOverScreen");
+/*
+if(gameOverScreen != null) {
+	Debug.Log("Found child" + gameOverScreen.name);
+	//aChild.gameobject.SetActive( true ); // false
+} else {
+	Debug.Log("Child not found");
+}
+*/
 		// FADE SCREEN SETUP
-		fadeCanvas = GetComponentInChildren<Canvas>();
-		coverImageGO = fadeCanvas.transform.Find("Image");
-		coverImage = coverImageGO.GetComponentInChildren<Image>();
+		//fadeCanvas = GetComponentInChildren<Canvas>();
+		//coverImageGO = fadeCanvas.transform.Find("Image");
+		//coverImage = coverImageGO.GetComponentInChildren<Image>();
 
 		// start by enabeling the image
 		// the default is false -> hidden
-		coverImage.enabled = true;
+		//coverImage.enabled = true;
 
 		// start with fading in.
+		/*
 		CrossAlphaWithCallback(coverImage, 0f, fadeSpeed, delegate {
 			coverImage.enabled = false;
 		});
-
+		*/
 	}
 
 	public void CrossAlphaWithCallback(Image img, float alpha, float duration, System.Action action){
@@ -63,7 +75,9 @@ public class LevelManager : MonoBehaviour {
 
 	// Show the game over screen
 	public void ShowGameOver(){
+		
 		gameOverPanel = gameOverScreen.GetComponent<CanvasGroup>();
+		Debug.Log("-->" + gameOverPanel.name);
 		gameOverPanel.alpha = 1;
 		gameOverPanel.interactable = true;
 		gameOverPanel.blocksRaycasts = true;
