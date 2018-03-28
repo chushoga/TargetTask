@@ -2353,6 +2353,7 @@ GameObject:
   - component: {fileID: 672963871}
   - component: {fileID: 672963870}
   - component: {fileID: 672963869}
+  - component: {fileID: 672963873}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -2444,6 +2445,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &672963873
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672963868}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &674834243
 Prefab:
   m_ObjectHideFlags: 0
@@ -2975,65 +2987,7 @@ Prefab:
     - target: {fileID: 225888559287584942, guid: 247e46e31de853f4492b9a994c07a870,
         type: 2}
       propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 225888559287584942, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541141745430968, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1592326693456862, guid: 247e46e31de853f4492b9a994c07a870, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114108486693923212, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224557567908785448, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 51.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 224557567908785448, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 1707.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 224557567908785448, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 2540.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 224557567908785448, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 88.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1623780910604754, guid: 247e46e31de853f4492b9a994c07a870, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 225888559287584942, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_Interactable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 225888559287584942, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_BlocksRaycasts
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 225888559287584942, guid: 247e46e31de853f4492b9a994c07a870,
-        type: 2}
-      propertyPath: m_IgnoreParentGroups
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 247e46e31de853f4492b9a994c07a870, type: 2}
@@ -4687,52 +4641,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 371534cc5548f414d9549d2426ea5447, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1475276584 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1592326693456862, guid: 247e46e31de853f4492b9a994c07a870,
-    type: 2}
-  m_PrefabInternal: {fileID: 792634763}
---- !u!114 &1475276585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1475276584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
---- !u!223 &1475276586
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1475276584}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!4 &1490411132 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4462709302734854, guid: 371534cc5548f414d9549d2426ea5447,
