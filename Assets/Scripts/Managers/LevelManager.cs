@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour {
 	// --------------------------------
 	// FADE SCREEN
 	// --------------------------------
+	private GameObject fadeOutScreen;
 	private float fadeSpeed = 1f;
 	private Canvas fadeCanvas;
 	private Transform coverImageGO; // black overlay
@@ -27,29 +28,23 @@ public class LevelManager : MonoBehaviour {
 
 		// SET UP GAME OVER SCREEN
 		gameOverScreen = GameObject.Find("GameOverScreen");
-/*
-if(gameOverScreen != null) {
-	Debug.Log("Found child" + gameOverScreen.name);
-	//aChild.gameobject.SetActive( true ); // false
-} else {
-	Debug.Log("Child not found");
-}
-*/
+
 		// FADE SCREEN SETUP
-		//fadeCanvas = GetComponentInChildren<Canvas>();
-		//coverImageGO = fadeCanvas.transform.Find("Image");
-		//coverImage = coverImageGO.GetComponentInChildren<Image>();
+		fadeOutScreen = GameObject.Find("FadeOutScreen");
+		fadeCanvas = fadeOutScreen.GetComponentInChildren<Canvas>();
+		coverImageGO = fadeCanvas.transform.Find("Image");
+		coverImage = coverImageGO.GetComponentInChildren<Image>();
 
 		// start by enabeling the image
 		// the default is false -> hidden
-		//coverImage.enabled = true;
+		coverImage.enabled = true;
 
 		// start with fading in.
-		/*
+
 		CrossAlphaWithCallback(coverImage, 0f, fadeSpeed, delegate {
 			coverImage.enabled = false;
 		});
-		*/
+
 	}
 
 	public void CrossAlphaWithCallback(Image img, float alpha, float duration, System.Action action){
@@ -93,12 +88,26 @@ if(gameOverScreen != null) {
 
 	// restart the current level
 	public void RestartLevel(){
-		Scene scene = SceneManager.GetActiveScene();
-		SceneManager.LoadScene(scene.name);
+
+		// Fade out
+		CrossAlphaWithCallback(coverImage, 1f, fadeSpeed, delegate {
+			//coverImage.enabled = false;
+			Scene scene = SceneManager.GetActiveScene();
+			SceneManager.LoadScene(scene.name);
+		});
+
+
 	}
 
 	// load the level with the name given
 	public void LoadLevel(string levelName){
-		SceneManager.LoadScene(levelName);
+
+		// Fade out
+		CrossAlphaWithCallback(coverImage, 1f, fadeSpeed, delegate {
+			//coverImage.enabled = false;
+			SceneManager.LoadScene(levelName);
+		});
+
+
 	}
 }

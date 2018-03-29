@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour {
 
 
-	// Set the target frame rate
 	void Awake(){
+		// Set the target frame rate
 		Application.targetFrameRate = 60;
 	}
 
