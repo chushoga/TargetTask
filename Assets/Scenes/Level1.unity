@@ -4764,7 +4764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7c8bebb5594474a9e96970abc74b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelBaseTime: 2
+  levelBaseTime: 20
   IS_PAUSED: 0
   shotForce: 0
   shotForceMax: 100
@@ -5075,7 +5075,7 @@ Prefab:
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -111.13345
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
@@ -9215,7 +9215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 44, y: -54.50003}
+  m_AnchoredPosition: {x: 44, y: 4.4999695}
   m_SizeDelta: {x: 640.22, y: 179.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1709481570
@@ -9778,7 +9778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -376.51, y: -234}
+  m_AnchoredPosition: {x: -376.51, y: -175}
   m_SizeDelta: {x: 640.22, y: 179.5}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1929713756
