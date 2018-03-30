@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f984f418bd56e604b9c04d15416eb67c
+timeCreated: 1522380498
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: UD Digi Kyokasho NP-B
+  fontNames:
+  - UD Digi Kyokasho NP-B
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

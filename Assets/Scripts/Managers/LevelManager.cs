@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour {
 	// FADE SCREEN
 	// --------------------------------
 	private GameObject fadeOutScreen;
-	private float fadeSpeed = 1f;
+	private float fadeSpeed = 0.5f;
 	private Canvas fadeCanvas;
 	private Transform coverImageGO; // black overlay
 	private Image coverImage; // child of the black overlay
