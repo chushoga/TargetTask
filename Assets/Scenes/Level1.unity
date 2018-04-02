@@ -364,7 +364,7 @@ Prefab:
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -73.900085
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
@@ -673,7 +673,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 726f228b168471947b6779da4209cd90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0c06852d9b36b84eb5f04f7084a6bd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1715,7 +1715,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 91c5ac306f4c9dc428c41a7c5e62757b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afffbff2328ccda489c23f484e317b20, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2313,7 +2313,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 726f228b168471947b6779da4209cd90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0c06852d9b36b84eb5f04f7084a6bd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3441,7 +3441,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 26ee81ea06f804c40b393cbca7b97745, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12fe9673099c06e4f85c19ace85c23fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4548,7 +4548,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 26ee81ea06f804c40b393cbca7b97745, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12fe9673099c06e4f85c19ace85c23fa, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4662,7 +4662,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 26ee81ea06f804c40b393cbca7b97745, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12fe9673099c06e4f85c19ace85c23fa, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5145,7 +5145,7 @@ Prefab:
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -73.900085
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
@@ -5269,7 +5269,7 @@ Prefab:
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -73.900085
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224371116161053520, guid: a72ecd99dc76f5e47a04cd8f19dbdf86,
         type: 2}
@@ -9372,7 +9372,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 91c5ac306f4c9dc428c41a7c5e62757b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afffbff2328ccda489c23f484e317b20, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9465,7 +9465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 52.852, y: -16}
+  m_AnchoredPosition: {x: 52.85205, y: -16}
   m_SizeDelta: {x: 1197.7, y: 314.4}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1709481570
