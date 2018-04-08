@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject powerGauge;
 	private Image powerGaugeRef;
 
+
+
 	// MANAGERS
 	public LevelManager lm;
 
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviour {
 
 		isCharging = false;
 		shotForce = 0;
-		powerGaugeRef.fillAmount = shotForce/200; // RESET SHOT FORCE
+		powerGaugeRef.fillAmount = 0.06f; // RESET SHOT FORCE
 
 		//Play shot particle
 		ParticleSystem ammoPart = ammoSpawn.GetComponentInChildren<ParticleSystem>();
@@ -116,7 +118,11 @@ public class GameManager : MonoBehaviour {
 	public void ChargeShot(){
 		if(shotForce < shotForceMax) {
 			shotForce += 1f;
-			powerGaugeRef.fillAmount = shotForce/200;
+			if(shotForce / 224 < 0.06){
+				powerGaugeRef.fillAmount = 0.06f;
+			} else {
+				powerGaugeRef.fillAmount = shotForce / 224;
+			}
 		}
 	}
 
