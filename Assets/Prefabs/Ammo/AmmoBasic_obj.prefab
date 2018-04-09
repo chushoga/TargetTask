@@ -208,7 +208,9 @@ MonoBehaviour:
   useGravity: 1
   gravityMod: 2
   damage: 1
-  bounceCount: 3
+  bounceCount: 1
+  explosiveForce: 50
+  explosiveRadius: 2
 --- !u!135 &135372662824806212
 SphereCollider:
   m_ObjectHideFlags: 1

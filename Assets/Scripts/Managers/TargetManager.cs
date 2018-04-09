@@ -10,9 +10,6 @@ public class TargetManager : MonoBehaviour {
 	private bool hasCounted; // has the point been counted yet?
 	public float rarity; // rarity of the target.
 	public float speed; // movement speed
-	public float explosiveForce;
-	public float explosiveLift;
-	public float density;
 	public bool moveDir;
 
 	private bool isMoving = true;

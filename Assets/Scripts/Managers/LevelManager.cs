@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour {
 
 	void Start(){
 
+
 		// SET UP GAME OVER SCREEN
 		gameOverScreen = GameObject.Find("GameOverScreen");
 
@@ -76,6 +77,7 @@ public class LevelManager : MonoBehaviour {
 		gameOverPanel.alpha = 1;
 		gameOverPanel.interactable = true;
 		gameOverPanel.blocksRaycasts = true;
+		Time.timeScale = 0; // pauses the game stopping the game other items from continuing to move.
 	}
 
 	// hide the game overscreen
@@ -89,8 +91,10 @@ public class LevelManager : MonoBehaviour {
 	// restart the current level
 	public void RestartLevel(){
 
+		Time.timeScale = 1.0f;
+
 		// Fade out
-		CrossAlphaWithCallback(coverImage, 1f, fadeSpeed, delegate {
+		CrossAlphaWithCallback(coverImage, 1f, fadeSpeed / 2, delegate {
 			//coverImage.enabled = false;
 			Scene scene = SceneManager.GetActiveScene();
 			SceneManager.LoadScene(scene.name);
@@ -101,7 +105,7 @@ public class LevelManager : MonoBehaviour {
 
 	// load the level with the name given
 	public void LoadLevel(string levelName){
-
+		Time.timeScale = 1.0f;
 		// Fade out
 		CrossAlphaWithCallback(coverImage, 1f, fadeSpeed, delegate {
 			//coverImage.enabled = false;

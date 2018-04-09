@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class AmmoManager : MonoBehaviour {
 
-	public bool useGravity = true;
+	// GRAVITY MODIFER
+	public bool useGravity = true; // if ammo uses special gravity or not
 	public float gravityMod = 0; // how much - the gravity? 
+
+	// DAMAGE
 	public float damage = 1; // damage done by the ammo
+
+	// BOUNCE
 	public int bounceCount = 0; // destroy ammo after how many bounces
-	private int bounceCounter = 0;
+	private int bounceCounter = 0; // counter for how many bounces have been done
+
+	// EXPLOSIVE
+	public float explosiveForce = 10.0f;
+	public float explosiveRadius = 10.0f;
 
 
 	void Start(){
@@ -23,12 +32,29 @@ public class AmmoManager : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter(){
+	void OnCollisionEnter(Collision col){
 		
 		bounceCounter += 1;
-		if(bounceCounter > bounceCount){
+		if(bounceCounter >= bounceCount){
+
+			// explode
+			Vector3 explosionPos = transform.position;
+
+			Collider[] colliders = Physics.OverlapSphere(explosionPos, explosiveRadius);
+
+			foreach(Collider hit in colliders) {
+				
+				Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+				if(rb != null) {
+					rb.AddExplosionForce(explosiveForce, explosionPos, explosiveRadius);
+				}
+
+			}
+
 			Destroy(gameObject);	
 		}
+
 		Debug.Log(bounceCounter);
 	}
 

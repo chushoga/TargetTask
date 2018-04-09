@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour {
 
 
 		// update the shot power text
-		shotForceRef.text = Mathf.Round(shotForce) + "";
+		shotForceRef.text = Mathf.Round(shotForce) + "%";
 	}
 
 	public void Shoot(){
