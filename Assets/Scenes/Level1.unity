@@ -8263,7 +8263,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1500234575}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.00565, z: 0.001}
+  m_LocalPosition: {x: 0, y: -0.00762, z: 0.001}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1637241205}
@@ -8421,6 +8421,8 @@ MonoBehaviour:
     type: 2}
   shotForceText: {fileID: 1598229522}
   powerGauge: {fileID: 1422909852}
+  fireBtnDown: {fileID: 0}
+  directionDown: {fileID: 0}
   lm: {fileID: 1720712181}
 --- !u!1001 &1520518967
 Prefab:
@@ -9298,7 +9300,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1067114264
+  randomSeed: -177369246
   InitialModule:
     serializedVersion: 3
     enabled: 1

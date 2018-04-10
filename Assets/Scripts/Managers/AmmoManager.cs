@@ -19,17 +19,26 @@ public class AmmoManager : MonoBehaviour {
 	public float explosiveForce = 10.0f;
 	public float explosiveRadius = 10.0f;
 
+	// REFERENCE VARS
+	Rigidbody rb;
 
 	void Start(){
-		// change the gravity here
 
+		// REFERENCES
+		rb = GetComponent<Rigidbody>();
+
+		// change the gravity here
 		if(useGravity){
 			Physics.gravity = new Vector3(0, -gravityMod, 0);
 		} else {
 			gameObject.GetComponent<Rigidbody>().useGravity = false; // enable gravity
 		}
 
+	}
 
+	void Update(){
+		// rotate ammo based on trajectory
+		transform.rotation = Quaternion.LookRotation(rb.velocity);
 	}
 
 	void OnCollisionEnter(Collision col){

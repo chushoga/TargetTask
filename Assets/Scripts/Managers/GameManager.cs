@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour {
 	public GameObject powerGauge;
 	private Image powerGaugeRef;
 
+	// buttons highlight
+	public Image fireBtnDown;
+	public Image directionDown;
 
 
 	// MANAGERS
