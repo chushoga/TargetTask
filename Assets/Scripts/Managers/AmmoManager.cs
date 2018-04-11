@@ -9,7 +9,7 @@ public class AmmoManager : MonoBehaviour {
 	public float gravityMod = 0; // how much - the gravity? 
 
 	// DAMAGE
-	public float damage = 1; // damage done by the ammo
+	public int damage = 1; // damage done by the ammo
 
 	// BOUNCE
 	public int bounceCount = 0; // destroy ammo after how many bounces

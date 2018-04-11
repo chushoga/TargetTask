@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23579966058819700}
   - component: {fileID: 65439042916742448}
   - component: {fileID: 54291135143869358}
+  - component: {fileID: 114494296575273992}
   m_Layer: 0
   m_Name: SationaryTarget
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +92,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191682541922892}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -111,3 +112,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0064307055, y: 0.008574274, z: 0.0075}
   m_Center: {x: 2.3283064e-10, y: 9.313226e-10, z: 0.00375}
+--- !u!114 &114494296575273992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191682541922892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9dd5781bca4674ca95b0c25fe3c8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 50
+  plusTime: 60
+  rarity: 5
