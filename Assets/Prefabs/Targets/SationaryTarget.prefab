@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1191682541922892}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalScale: {x: 250, y: 250, z: 250}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -126,3 +126,4 @@ MonoBehaviour:
   points: 50
   plusTime: 60
   rarity: 5
+  hp: 100

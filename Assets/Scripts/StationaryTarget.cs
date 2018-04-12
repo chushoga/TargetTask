@@ -42,7 +42,7 @@ public class StationaryTarget : MonoBehaviour {
 		if(collision.gameObject.tag == "Target") {
 			hp -= hp / 2;
 			if(hp <= 0) {
-				GameManager.SCORE += collision.gameObject.GetComponent<TargetManager>().points;
+				GameManager.SCORE += collision.gameObject.GetComponent<StationaryTarget>().points;
 				Destroy(gameObject, 0.5f);
 			}
 		}
