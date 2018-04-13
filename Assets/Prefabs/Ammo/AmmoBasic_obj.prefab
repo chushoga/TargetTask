@@ -19,12 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4004582292290520}
-  - component: {fileID: 33082163991222764}
-  - component: {fileID: 135372662824806212}
   - component: {fileID: 23613005972145780}
   - component: {fileID: 54080188378443498}
   - component: {fileID: 114914539802847160}
   - component: {fileID: 96764631829823214}
+  - component: {fileID: 136186516288519652}
   m_Layer: 0
   m_Name: AmmoBasic_obj
   m_TagString: Ammo
@@ -40,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1978769367933842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 88e50c3e32fe62a4e9f37f089334311e, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,13 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33082163991222764
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1978769367933842}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54080188378443498
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -211,8 +203,8 @@ MonoBehaviour:
   bounceCount: 2
   explosiveForce: 50
   explosiveRadius: 3
---- !u!135 &135372662824806212
-SphereCollider:
+--- !u!136 &136186516288519652
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -220,6 +212,7 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: 97fd9274c65d90d49afb27aad5692dd3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.001308
+  m_Height: 0.0045
+  m_Direction: 0
+  m_Center: {x: -0.00012939097, y: 0, z: 1.1641532e-10}
