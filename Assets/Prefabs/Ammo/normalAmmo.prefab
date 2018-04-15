@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 96379509649442374}
   m_Layer: 0
   m_Name: normalAmmo
-  m_TagString: Untagged
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 1011725927906250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 6}
   m_Children:
   - {fileID: 4435366538028308}
   m_Father: {fileID: 0}
@@ -263,12 +263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766b5370a5807d243aaba31e348ee9ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useGravity: 1
-  gravityMod: 2
   damage: 25
-  bounceCount: 2
+  bounceCount: 3
   explosiveForce: 50
-  explosiveRadius: 3
+  explosiveRadius: 2
 --- !u!136 &136762944565504588
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -278,7 +276,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 97fd9274c65d90d49afb27aad5692dd3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.001308
-  m_Height: 0.0045
-  m_Direction: 0
-  m_Center: {x: -0.00012939097, y: 0, z: 1.1641532e-10}
+  m_Radius: 0.1
+  m_Height: 0.32
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}

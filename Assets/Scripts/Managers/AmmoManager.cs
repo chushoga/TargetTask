@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoManager : MonoBehaviour {
-
-	// GRAVITY MODIFER
-	public bool useGravity = true; // if ammo uses special gravity or not
-	public float gravityMod = 0; // how much - the gravity? 
-
+	
 	// DAMAGE
 	public int damage = 1; // damage done by the ammo
 
@@ -26,14 +22,6 @@ public class AmmoManager : MonoBehaviour {
 
 		// REFERENCES
 		rb = GetComponent<Rigidbody>();
-
-		// change the gravity here
-		if(useGravity){
-			Physics.gravity = new Vector3(0, -gravityMod, 0);
-		} else {
-			gameObject.GetComponent<Rigidbody>().useGravity = false; // enable gravity
-		}
-
 	}
 
 	void Update(){
@@ -44,7 +32,6 @@ public class AmmoManager : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		
 		bounceCounter += 1;
-		if(bounceCounter >= bounceCount){
 
 			// explode
 			Vector3 explosionPos = transform.position;
@@ -60,11 +47,10 @@ public class AmmoManager : MonoBehaviour {
 				}
 
 			}
-
+		if(bounceCounter >= bounceCount){
 			Destroy(gameObject);	
 		}
 
-		Debug.Log(bounceCounter);
 	}
 
 	void OnTriggerEnter(Collider collider){
