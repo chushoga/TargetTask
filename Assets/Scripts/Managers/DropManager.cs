@@ -31,7 +31,7 @@ public class DropManager : MonoBehaviour {
 	// ---------------------------------------------------------------------------------------------------------------------------------------------
 	void SpawnDrops(){
 
-		Vector3 randomX = new Vector3(spawnPoint.transform.position.x + Random.Range(-1.0f, 1), spawnPoint.transform.position.y + Random.Range(-1.0f, 1), spawnPoint.transform.position.z + Random.Range(-1.0f, 1));
+		Vector3 randomX = new Vector3(spawnPoint.transform.position.x + Random.Range(-dropRadius, dropRadius), spawnPoint.transform.position.y, spawnPoint.transform.position.z + Random.Range(-dropRadius, dropRadius));
 
 		GameObject go = Instantiate(itemsToDrop[ChooseRandomSpawn(itemsToDrop)], randomX, Quaternion.identity);
 		go.transform.parent = dropContainer.transform;

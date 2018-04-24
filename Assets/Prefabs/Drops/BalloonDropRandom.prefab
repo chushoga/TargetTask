@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114808911037122552}
   - component: {fileID: 54436858137206872}
   - component: {fileID: 65655505667742618}
+  - component: {fileID: 135594991271761890}
   m_Layer: 0
   m_Name: BalloonDropRandom
   m_TagString: Target
@@ -211,8 +212,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.85632527, y: 0.6631478, z: 1}
+  m_Center: {x: 0, y: 0.3315739, z: 0}
 --- !u!114 &114808911037122552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,3 +230,15 @@ MonoBehaviour:
   plusTime: 1000
   rarity: 50
   speed: 5
+--- !u!135 &135594991271761890
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132223505331428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 3.45, z: 0}
