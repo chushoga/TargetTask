@@ -31,10 +31,12 @@ public class TargetManager : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider){
-		
+
+		gameObject.transform.SetParent(null); // is this needed now??
+
 		if (collider.gameObject.tag == "OutOfBounds_Platform"){
 			// un parent it with the platform so it does not keep following the patform when hit.
-			// gameObject.transform.SetParent(null); // is this needed now??
+
 			isMoving = false;
 		}
 	}
