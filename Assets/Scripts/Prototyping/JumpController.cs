@@ -9,7 +9,7 @@ public class JumpController : MonoBehaviour
 	private readonly Vector3 INITIAL_POSITION = Vector3.zero;
 	private readonly Vector3 GRAVITY = new Vector3(0f, -240.0f, 0f);
 	private const float DELAY_UNTIL_LAUNCH = 1f;
-	private int NUM_DOTS_TO_SHOW = 30;
+	private int NUM_DOTS_TO_SHOW = 10;
 	private float DOT_TIME_STEP = 0.05f;
 
 	private bool launched = false;
@@ -17,6 +17,7 @@ public class JumpController : MonoBehaviour
 	private Rigidbody rigidBody;
 
 	public GameObject trajectoryDotPrefab;
+	private MeshRenderer mr;
 
 	private void Awake()
 	{
@@ -26,9 +27,16 @@ public class JumpController : MonoBehaviour
 
 	private void Start()
 	{
-		for (int i = 0; i < NUM_DOTS_TO_SHOW; i++)
+		for (int i = NUM_DOTS_TO_SHOW; i > 0; i--)
 		{
+			
+			float p;
+			p = ((float)i / NUM_DOTS_TO_SHOW);
+			Debug.Log(i + " / " + NUM_DOTS_TO_SHOW + " = " + p);
 			GameObject trajectoryDot = Instantiate(trajectoryDotPrefab);
+			Material col = trajectoryDot.GetComponent<Renderer>().material;
+			trajectoryDot.GetComponent<Renderer>().material.color = new Color(col.color.r,col.color.g, col.color.b, p);
+			//trajectoryDot.GetComponent<Renderer>().material.color = Color.green;
 			trajectoryDot.transform.position = CalculatePosition(DOT_TIME_STEP * i);
 		}
 	}
