@@ -5,12 +5,12 @@ using UnityEngine;
 public class JumpController : MonoBehaviour
 {
 	
-	private readonly Vector3 LAUNCH_VELOCITY = new Vector3(20f, 80f, 0f);
-	private readonly Vector3 INITIAL_POSITION = Vector3.zero;
+	private Vector3 LAUNCH_VELOCITY = new Vector3(20f, 80f, 0f);
+	private Vector3 INITIAL_POSITION = Vector3.zero;
 	private readonly Vector3 GRAVITY = new Vector3(0f, -240.0f, 0f);
-	private const float DELAY_UNTIL_LAUNCH = 1f;
+	private const float DELAY_UNTIL_LAUNCH = 20f;
 	private int NUM_DOTS_TO_SHOW = 10;
-	private float DOT_TIME_STEP = 0.05f;
+	private float DOT_TIME_STEP = 0.025f; // Balance this
 
 	private bool launched = false;
 	private float timeUntilLaunch = DELAY_UNTIL_LAUNCH;
@@ -27,11 +27,10 @@ public class JumpController : MonoBehaviour
 
 	private void Start()
 	{
-		for (int i = NUM_DOTS_TO_SHOW; i > 0; i--)
-		{
-			
+		for (int i = 0; i < NUM_DOTS_TO_SHOW; i++)
+		{			
 			float p;
-			p = ((float)i / NUM_DOTS_TO_SHOW);
+			p = 1 - ((float)i / NUM_DOTS_TO_SHOW);
 			Debug.Log(i + " / " + NUM_DOTS_TO_SHOW + " = " + p);
 			GameObject trajectoryDot = Instantiate(trajectoryDotPrefab);
 			Material col = trajectoryDot.GetComponent<Renderer>().material;
@@ -62,4 +61,5 @@ public class JumpController : MonoBehaviour
 	{
 		return GRAVITY * elapsedTime * elapsedTime * 0.5f + LAUNCH_VELOCITY * elapsedTime + INITIAL_POSITION;
 	}
+
 }
