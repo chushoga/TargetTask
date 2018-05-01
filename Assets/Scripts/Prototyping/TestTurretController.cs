@@ -16,7 +16,7 @@ public class TestTurretController : MonoBehaviour {
 	private Vector3 INITIAL_POSITION = Vector3.zero;
 	private readonly Vector3 GRAVITY = new Vector3(0f, -240.0f, 0f);
 	private const float DELAY_UNTIL_LAUNCH = 20f;
-	private int NUM_DOTS_TO_SHOW = 10;
+	private int NUM_DOTS_TO_SHOW = 15;
 	private float DOT_TIME_STEP = 0.025f; // Balance this
 
 	private bool launched = false;
@@ -49,7 +49,7 @@ public class TestTurretController : MonoBehaviour {
 
 		if(Input.GetKey(KeyCode.S)){ barrel.transform.Rotate(Vector3.back, Time.deltaTime * 50.0f); }
 
-		if(Input.GetKeyDown(KeyCode.Space)){ Shoot(); }
+		if(Input.GetMouseButtonDown(0)){ Shoot(); }
 
 		powerTxt.text = shotForce + "p";
 	}
@@ -68,6 +68,7 @@ public class TestTurretController : MonoBehaviour {
 
 	public void DecreasePower(){
 		shotForce -= 2;
+		DrawTrajectory();
 	}
 
 	public void DrawTrajectory(){
