@@ -35,15 +35,11 @@ public class TestTurretController : MonoBehaviour {
 		trajectoryMaster = new GameObject();
 		trajectoryMaster.name = "trajectoryMaster";
 
-		INITIAL_POSITION = ammoSpawn.transform.position;
-		LAUNCH_VELOCITY_NEW = ammoSpawn.transform.forward * shotForce;
 		DrawTrajectory();
 	}
 
 	void FixedUpdate () {
-		INITIAL_POSITION = ammoSpawn.transform.position;
-		LAUNCH_VELOCITY_NEW = ammoSpawn.transform.forward * shotForce;
-		
+
 		//if(Input.GetKey(KeyCode.A)){ transform.Rotate(Vector3.down, Time.deltaTime * 50.0f); }
 
 		//if(Input.GetKey(KeyCode.D)){ transform.Rotate(Vector3.up, Time.deltaTime * 50.0f); }
@@ -75,9 +71,6 @@ public class TestTurretController : MonoBehaviour {
 
 	public void DrawTrajectory(){
 
-		LAUNCH_VELOCITY_NEW = ammoSpawn.transform.forward * shotForce;
-		INITIAL_POSITION = ammoSpawn.transform.position;
-
 		if(trajectoryMaster.transform.childCount == 0) {
 			for (int i = 0; i < NUM_DOTS_TO_SHOW; i++) {
 					
@@ -108,7 +101,8 @@ public class TestTurretController : MonoBehaviour {
 	private Vector2 CalculatePosition(float elapsedTime)
 	{
 		//return GRAVITY * elapsedTime * elapsedTime * 0.5f + LAUNCH_VELOCITY * elapsedTime + INITIAL_POSITION;
-
+		LAUNCH_VELOCITY_NEW = ammoSpawn.transform.forward * shotForce;
+		INITIAL_POSITION = ammoSpawn.transform.position;
 		return GRAVITY * elapsedTime * elapsedTime * 0.5f + LAUNCH_VELOCITY_NEW * elapsedTime + INITIAL_POSITION;
 	}
 		
