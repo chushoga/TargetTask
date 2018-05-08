@@ -10,7 +10,7 @@ public class JumpController : MonoBehaviour
 	private readonly Vector3 GRAVITY = new Vector3(0f, -240f, 0f);
 	private const float DELAY_UNTIL_LAUNCH = 1f;
 	private int NUM_DOTS_TO_SHOW = 30;
-	private float DOT_TIME_STEP = 0.05f;
+	private float DOT_TIME_STEP = 0.02f;
 
 	private bool launched = false;
 	private float timeUntilLaunch = DELAY_UNTIL_LAUNCH;
@@ -29,7 +29,7 @@ public class JumpController : MonoBehaviour
 		for (int i = 0; i < NUM_DOTS_TO_SHOW; i++)
 		{
 			GameObject trajectoryDot = Instantiate(trajectoryDotPrefab);
-			trajectoryDot.transform.position = CalculatePosition(DOT_TIME_STEP * i);
+			trajectoryDot.transform.position = CalculatePosition(DOT_TIME_STEP * i );
 		}
 	}
 
