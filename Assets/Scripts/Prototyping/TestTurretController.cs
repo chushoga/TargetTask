@@ -8,7 +8,7 @@ public class TestTurretController : MonoBehaviour {
 	GameObject barrel;
 	public Transform ammoSpawn;
 	public GameObject ammo;
-	public float shotForce = 50.0f;	
+	public float shotForce = 50.0f;
 	public Text powerTxt;
 
 
@@ -16,8 +16,8 @@ public class TestTurretController : MonoBehaviour {
 	private Vector3 INITIAL_POSITION = Vector3.zero;
 	private readonly Vector3 GRAVITY = new Vector3(0f, -240.0f, 0f);
 	private const float DELAY_UNTIL_LAUNCH = 20f;
-	private int NUM_DOTS_TO_SHOW = 10;
-	private float DOT_TIME_STEP = 0.05f; // Balance this
+	private int NUM_DOTS_TO_SHOW = 15;
+	private float DOT_TIME_STEP = 0.015f; // Balance this
 
 	private bool launched = false;
 
@@ -54,6 +54,8 @@ public class TestTurretController : MonoBehaviour {
 	}
 
 	public void Shoot(){
+		// set the fixed Timestep to a quicker interval and on bullet collision return it to 0.02.
+		Time.fixedDeltaTime = 0.002f;
 		GameObject bullet = Instantiate(ammo, ammoSpawn.transform.position, ammoSpawn.transform.rotation);
 		LAUNCH_VELOCITY_NEW = ammoSpawn.transform.forward * shotForce;
 		bullet.GetComponent<Rigidbody>().velocity = LAUNCH_VELOCITY_NEW;
@@ -83,6 +85,7 @@ public class TestTurretController : MonoBehaviour {
 				Material col = trajectoryDot.GetComponent<Renderer>().material;
 				trajectoryDot.GetComponent<Renderer>().material.color = new Color(col.color.r,col.color.g, col.color.b, p);		
 				trajectoryDot.transform.position = CalculatePosition(DOT_TIME_STEP * i);
+
 			}
 
 		} else {
