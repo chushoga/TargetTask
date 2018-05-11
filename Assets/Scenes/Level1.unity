@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.36647305, g: 0.8487572, b: 1.6185879, a: 1}
+  m_IndirectSpecularColor: {r: 0.35508406, g: 0.81838393, b: 1.6231804, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -6672,7 +6672,7 @@ MonoBehaviour:
   turretBody: {fileID: 1970246758}
   turretArm: {fileID: 178617818}
   ammoSpawn: {fileID: 1500234576}
-  ammo: {fileID: 1011725927906250, guid: 9b3e0a0c960316a488fb711702ded1b9, type: 2}
+  ammo: {fileID: 1609260767721548, guid: c38b8903e8805e54f82b73e246ea8087, type: 2}
   trajectoryHelper: {fileID: 1428219849303518, guid: afce7d56a89014d40802b1a28f3b09d3,
     type: 2}
   shotForceText: {fileID: 1598229522}
