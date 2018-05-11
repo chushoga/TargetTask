@@ -12,7 +12,7 @@ public class MoveRandomGroundTarget : MonoBehaviour {
 
 	[SerializeField] float wanderRange = 10f;
 	[SerializeField] float wanderSpeed = 2.5f;
-	[SerializeField] float turnSpeed = 50f;
+	[SerializeField] float turnSpeed = 5.0f;
 
 	// collision bounds(make larger than the character)
 	// this is a required component
@@ -33,7 +33,10 @@ public class MoveRandomGroundTarget : MonoBehaviour {
 	// collision barrior cooldown.
 	float collisionCooldownTimer = 2.0f;
 
+	// the animator for the object
 	Animator ani;
+
+
 
 	// Use this for initialization
 	void Start() {
@@ -212,7 +215,7 @@ public class MoveRandomGroundTarget : MonoBehaviour {
 
 		isMoving = false;
 
-		float time = Random.Range(10.0f, 20.0f);
+		float time = Random.Range(0.0f, 15.0f);
 
 		yield return new WaitForSeconds(time);
 

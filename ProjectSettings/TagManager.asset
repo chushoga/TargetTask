@@ -9,6 +9,7 @@ TagManager:
   - Ammo
   - Target
   - Obsticle
+  - Ground
   layers:
   - Default
   - TransparentFX
